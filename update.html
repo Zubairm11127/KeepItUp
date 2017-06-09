@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Registration Form</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      
+
+<!-- Optional theme -->
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
+</head>
+
+<body ng-app="firstApplicationt">
+    <div ng-controller="openListController">
+
+    <form ng-submit="insert(data)"  class="container">
+    <h2> Registration </h2> <br>
+    <label> UserName </label>
+    <input type="text" class="form-control" ng-model="data.UserName"> <br>
+
+    <label> Email </label> <br>
+    <input type="email"  class="form-control" ng-model="data.Email"> <br>
+
+    <label> Password </label> <br>
+    <input type="password"  class="form-control" ng-model="data.Password"> <br>
+
+    <label> Confirm Password </label> <br>
+    <input type="password"  class="form-control" ng-model="data.CPassword"> <br>
+
+    <input type="button" id="btn" class="btn btn-primary" value="Register">
+
+    </from>
+
+ <!-- External Libs Scripts -->        
+    <script src="lib/angular.min.js"></script>
+    
+     
+   <!-- Application Scripts -->
+   <script src="register.js"></script>
+
+   <script src="common.services.js"></script>
+   <script src="dalService.js"></script>
+ </body>
+</html>

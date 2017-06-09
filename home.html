@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+     <title>  Contact List</title>
+    <link rel="stylesheet" href="style/style.css">
+
+
+      <!--////////Add from  google///////////////////////////////-->
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+       
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     
+   
+</head>
+  <body ng-app="firstApplication">
+      <div ng-controller="openListController" layout="column">
+        <h3 class="md-no-sticky"> Contact List </h3> 
+         
+        
+        <div>
+          <form ng-submit="insert(current)" name="insertform" class="leftside">
+                  <label> Name:</label>
+                  <input  type="text" class="form-control"  ng-model="current.UserName"   required> 
+              
+                  Email: <input  type="email"  class="form-control"  ng-model="current.Email"  > 
+
+                  Phone Number: <input  type="number" class="form-control"  ng-model="current.PhoneNumber">
+
+                  <!-- button ng-click="InsertData()">Insert</button -->
+                  <!--<input  type="submit" value="submit">-->
+                  <md-button   type="submit" class="md-raised md-primary"> Insert </md-button>
+                  
+ 
+               </form>  
+               
+            </div>
+            
+          <div> 
+             
+          <form ng-submit="insert(current)" name="insertform" class="leftside" >
+              <!--<p ng-bind-html="contact.UserName"></p>-->
+                    
+           Search: <input  type="text" class="leftside" placeholder="serach" ng-model="searchText">  
+           <!--<md-button   type="submit" class="md-raised md-primary" ng-click="serach(current)"> Search </md-button>-->
+           
+        </form>
+        </div>
+        
+         <md-content class="md-padding" >
+    
+
+               
+
+               <md-button class="md-raised md-primary" ng-click="OpenList()">
+                 Employee List
+               </md-button>
+                <md-list>
+               <md-subheader class="md-no-sticky">
+                 Employee List
+               </md-subheader>
+                        
+               <md-list-item class="md-1-line contact-item" ng-repeat="contact in gists |filter:searchText"
+              
+                   <spna> <title flex= 10 style="border: none;" layout="row">Name</title> </span>
+                     <h3 flex= 10 style="border: none;" id= "username" name="username"  layout="row">{{contact.UserName}}</h3>
+                     <md-divider vertical></md-divider>
+                       
+                      <label flex= 10 style="border: none;" layout="row" >Email</label>
+
+                      <p flex= 15 style="border: none;"   id="email" name= "email"  layout="row"> {{contact.Email}}</p>
+                 
+                      <label  flex= 10 style="border: none;"   layout="row">Phone Number</label>
+
+                       <p flex= 15 style="border: none;" id=phonenumber name="phonenumber"   layout="row">{{contact.PhoneNumber}}</p>
+                       
+                     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                        <!--<md-button  ng-href="{{templateUrl}}" class="md-raised">Insert</md-button>-->
+                        <md-button class="md-raised md-primary" ng-click="edit(contact)">edit</md-button>
+                         <md-button   type="submit" class="md-raised" ng-click="update(contact)">Update</md-button>
+                          <!--<md-button    ng-href="{{templateUrl}}" type="submit" class="md-raised" ng-click="insert(contact)">Insert</md-button>-->
+                         <md-button class="md-raised md-warn" ng-click="delete(contact._id)">Delete</md-button>
+                         
+                      </section>
+
+              
+                     
+
+
+                </md-list-item>
+                 
+               
+            </md-list>
+             
+         
+         </md-content>
+     
+      </div>
+    
+          
+    <!-- External Libs Scripts -->        
+    <script src="lib/angular.min.js"></script>
+    
+     
+   <!-- Application Scripts -->
+   <script src="register.js"></script>
+   <script src="home.js"></script>
+    
+
+   <script src="common.services.js"></script>
+   <script src="dalService.js"></script>
+   
+
+  
+   
+</body>
+</html>

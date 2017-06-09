@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+   <title>  Contact List</title>
+
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      
+    <link rel="stylesheet" href="style/style.css">
+
+      <!--////////Add from  google///////////////////////////////-->
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <!-- Optional theme -->
+        
+   
+</head>
+  <body ng-app="firstApplication">
+      <div ng-controller="openListController" layout="column" >
+        <div>
+        <form ng-submit="insert(data)" class="container"  name="myForm">
+          <h2> Registration </h2> <br>
+          <label> UserName </label> <br>
+          <input type="text" name="UserName" ng-model="data.UserName" size="60" required>
+          <span ng-show="myForm.UserName.$error.required" style="color:red"> * </span> <br> <br>
+
+          <label> Email </label> <br>
+          <input type="email"  ng-model="data.Email" name="email" size="60" required> 
+           <span ng-show="myForm.email.$error.required" style="color:red"> * </span> <br> <br>
+
+          <label> Password </label> <br>
+          <input type="password"  ng-model="data.Password" id="password" name="password" size="60" 
+           ng-change="password_error_show=cpassword.error.show +1; changepassword()"   required> 
+           <span ng-show="myForm.password.$error.required" style="color:red"> * </span> <br> <br>
+
+          <label> Confirm Password </label> <br>
+          <input type="password"   ng-model="data.CPassword" id="cpassword" name="cpassword" size="60"
+           ng-change="cpassword_error_show=cpassword.error.show +1; changepassword()"   required>  
+           <span ng-show="myForm.cpassword.$error.required" style="color:red" > * </span> <br> <br>
+            <span style="color:red" ng-show="cpassword_error_show > 0 && password !== cpassword && passvlidation "> Password Mismatch  </span>
+           <span style="color:red" ng-show="cpassword_error_show > 0 && password === cpassword && passvlidation" > Password match  </span>
+
+          <input  ng-href="{{templateurl}}" type="submit" id="btn" class="btn btn-primary" value="Register">
+
+         </from>
+
+      </div>
+            
+   </div> 
+             
+          
+    
+          
+    <!-- External Libs Scripts -->        
+    <script src="lib/angular.min.js"></script>
+    
+     
+   <!-- Application Scripts -->
+   <script src="register.js"></script>
+
+   <script src="common.services.js"></script>
+   <script src="dalService.js"></script>
+   
+
+  
+   
+</body>
+</html>
